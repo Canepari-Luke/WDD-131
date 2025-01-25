@@ -22,6 +22,33 @@ header, footer {
     text-align: center;
     padding: 1em;
 }
+menu {
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+.menu:hover {
+    background-color: var(--secondary-color);
+}
+
+a {
+    color: var(--text-light);
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+}
+
+h2 {
+    text-align: center;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: 1fr;
@@ -33,17 +60,6 @@ img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-}
-.menu {
-    background-color: var(--accent-color);
-    color: var(--text-light);
-    border: none;
-    padding: 0.5em 1em;
-    cursor: pointer;
-}
-
-.menu:hover {
-    background-color: var(--secondary-color);
 }
 @media screen and (min-width: 700px) {
     .gallery {
@@ -61,8 +77,14 @@ img {
     }
 
     header {
-        display: flex;
         justify-content: space-between;
+        align-items: center;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
         align-items: center;
     }
 }
