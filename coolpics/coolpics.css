@@ -57,6 +57,7 @@ h2 {
     justify-content: center;
     margin: 0 auto;
     max-width: 1000px;
+    justify-items: center;
 }
 
 .gallery img {
