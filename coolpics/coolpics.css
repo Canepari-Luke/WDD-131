@@ -16,13 +16,15 @@ body {
     margin: 0;
     color: var(--text-dark);
 }
+
 header, footer {
     background-color: var(--primary-color);
     color: var(--text-light);
     text-align: center;
     padding: 1em;
 }
-menu {
+
+.menu-button {
     background-color: var(--accent-color);
     color: var(--text-light);
     border: none;
@@ -30,7 +32,7 @@ menu {
     cursor: pointer;
 }
 
-.menu:hover {
+.menu-button:hover {
     background-color: var(--secondary-color);
 }
 
@@ -38,8 +40,11 @@ a {
     color: var(--text-light);
 }
 
-nav {
-    display: flex;
+.hide {
+    display: none;
+}
+
+.menu {
     flex-direction: column;
     align-items: center;
     gap: .5em;
@@ -61,10 +66,10 @@ h2 {
 }
 
 .gallery img {
-    border: 5px solid #fff; /* Add a 5px white border around the images */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow behind the images */
-    object-fit: cover; /* Maintain the aspect ratio of the images */
-    border-radius: 0; /* Remove any default border radius */
+    border: 5px solid #fff; /* White border around the images */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow behind the images */
+    object-fit: cover; /* Maintains the aspect ratio of the images */
+    border-radius: 0; /* Remove default border radius */
     max-width: 250px; /* Set a maximum width for the images */
     max-height: 250px; /* Set a maximum height for the images */
 }
@@ -74,6 +79,60 @@ img {
     height: 250px;
     object-fit: cover;
 }
+
+/* Modal container */
+.viewer {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75); /* Initially, semi-transparent background */
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    z-index: 10; /* Ensure it's above other content */
+    padding: 10px; /* Padding around the image */
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+/* Modal image */
+.viewer img {
+    width: 100%; /* Image takes up 100% of the container width */
+    max-width: 1000px; /* Cap the image width at 1000px */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Maintain aspect ratio without cropping */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.viewer.viewer-expanded:fullscreen {
+    background-color: transparent; /* Remove semi-transparent background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a semi-transparent border around the image */
+    border: 10px solid #fff; /* Add a white border */
+}
+
+/* Add transition for scaling the image */
+.viewer.viewer-expanded img {
+    transform: scale(1); /* Keep the image at full scale once it reaches max width */
+}
+
+.close-viewer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5em;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-viewer:hover {
+    color: #ccc;
+}
+
+
 @media screen and (min-width: 700px) {
     .gallery {
         grid-template-columns: 1fr 1fr;
@@ -85,7 +144,7 @@ img {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    .menu {
+    .menu-button {
         display: none;
     }
 
@@ -94,10 +153,26 @@ img {
         align-items: center;
     }
 
-    nav {
+    .menu {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
     }
+
+    .viewer {
+        width: 80%;
+        height: 80%;
+        align-content: center;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .viewer img {
+        width: 80%; /* Image takes up 100% of the container width */
+        max-width: 1000px; /* Cap the image width at 1000px */
+        height: 80%; /* Maintain aspect ratio */
+        object-fit: contain; /* Maintain aspect ratio without cropping */
+    }
+    
 }
