@@ -121,12 +121,10 @@ aside {
 }
 
 .skiptocontent {
-    display: block;
     position: absolute;
     top: -40px;
     left: 0;
     background-color: #8B0000; /* Darker red */
-    padding: 10px;
     border: none;
     cursor: pointer;
 }
@@ -135,8 +133,9 @@ aside {
     color: #2A2A2A; /* Dark background for contrast */
 }
 
-.skiptocontent a:focus {
-    top: 0;
+.skiptocontent a:focus-visible {
+    top: 10px;
+    left: 10px;
     margin-top: 10px;
 }
 
