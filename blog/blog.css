@@ -1,0 +1,147 @@
+/* General Styles (from your provided CSS) */
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1C1C1C;
+    color: #EDEDED;
+}
+
+h1, h2 {
+    font-family: "Cinzel", serif;
+    color: #D4A373;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+a {
+    color: #C0C0C0;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+a:hover {
+    color: #2A2A2A;
+    background-color: #8F9AA0;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Header Styles (Revised to match instructions and mockup) */
+header {
+    background-color: #7F0A0A;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+    padding: 10px; /* Adjusted padding */
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0 auto; /* Center the navigation */
+    margin-left: auto; /* Push the ul to the right */
+    margin-right: 0;   /* Reset right margin */
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* Use "auto" for column widths */
+    justify-content: end; /* Align to the right */
+    max-width: 300px; /* Set max-width */
+}
+
+header nav li {
+    margin-right: 20px;
+}
+
+header nav a {
+    font-size: 1.2em; /* Increased font size */
+    padding: 10px;
+}
+
+/* Add borders to the header */
+nav {
+    border-top: 1px solid #EDEDED; /* Added border */
+    border-bottom: 1px solid #EDEDED; /* Added border */
+    padding: 10px 0;
+}
+
+/* Main Content Grid (Revised to match instructions) */
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Articles on the left, filter on the right */
+    gap: 20px;
+    padding: 20px;
+}
+
+
+article {
+    display: grid;
+    grid-template-columns: .3fr 2fr; /* Two columns: auto for details, 1fr for content */
+    gap: 20px; /* Consistent gap between details and content */
+}
+
+.article-details {
+    color: #D4A373;
+    /* Remove display: grid and grid-template-columns */
+    align-self: start; /* Align details to the top of their cell */
+}
+
+.article-content {
+    font-size: 18px;
+    color: #F5F5F5;
+    margin-left: 4rem;
+    /* Remove padding-left */
+}
+
+.article-content h2 {
+    margin-top: 0;
+    text-align: left;
+    margin-left: 0;
+}
+
+article img {
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-left: 3rem;;
+    width: 300px;
+    display: block; /* Prevent image from affecting content width */
+}
+
+aside {
+    background-color: #7F0A0A; /* Darker red */
+    padding: 20px;
+    text-align: center;
+    color: #EDEDED;
+    border-radius: 10px;
+}
+
+.skiptocontent {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: #8B0000; /* Darker red */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.skiptocontent a {
+    text-decoration: none;
+    color: #2A2A2A; /* Dark background for contrast */
+}
+
+.skiptocontent a:focus {
+    top: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #7F0A0A; /* Dark red */
+    color: #EDEDED;
+}
