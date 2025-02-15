@@ -72,7 +72,7 @@ nav {
 /* Main Content Grid (Revised to match instructions) */
 main {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Articles on the left, filter on the right */
+    grid-template-columns: 2fr .5fr; /* Articles on the left, filter on the right */
     gap: 20px;
     padding: 20px;
 }
@@ -80,21 +80,30 @@ main {
 
 article {
     display: grid;
-    grid-template-columns: .3fr 2fr; /* Two columns: auto for details, 1fr for content */
-    gap: 20px; /* Consistent gap between details and content */
+    grid-template-columns: .2fr 1fr; /* Details and content columns */
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    
 }
 
 .article-details {
     color: #D4A373;
-    /* Remove display: grid and grid-template-columns */
-    align-self: start; /* Align details to the top of their cell */
+    align-self: start;
+    font-size: 1.2em;
+    text-align: right;
+    line-height: 1.5;
+    max-width: 180px; /* Max-width to fit "December 12, 2021" */
+    
 }
 
 .article-content {
     font-size: 18px;
     color: #F5F5F5;
-    margin-left: 4rem;
-    /* Remove padding-left */
+    padding-left: 2rem;
+    border-left: 1px solid #D4A373;
+     /* Visible border */
+
 }
 
 .article-content h2 {
@@ -107,7 +116,8 @@ article img {
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
-    margin-left: 3rem;;
+     margin-left: auto; /* Center the image horizontally */
+    margin-right: auto; /* Center the image horizontally */
     width: 300px;
     display: block; /* Prevent image from affecting content width */
 }
@@ -118,6 +128,10 @@ aside {
     text-align: center;
     color: #EDEDED;
     border-radius: 10px;
+    width: 250px; /* Fixed width for aside */
+    margin-top: 20px; /* Add some space above aside */
+    margin-left: auto; /* Keep the aside from getting too close to center */
+    margin-right: 20px; /* Push aside to the right with screen growth */
 }
 
 .skiptocontent {
