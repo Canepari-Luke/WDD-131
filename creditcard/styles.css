@@ -1,62 +1,117 @@
 body {
     background-color: rgb(61, 60, 60);
-    padding: 150px;
+    padding: 50px;
 }
 
 form {
     display: grid;
-    grid-template-columns: 200px 400px 200px;
-    grid-template-rows: 75px 300px 75px 75px;
-    gap: 10px;
-    width: 350px;
+    grid-template-columns: 100px 300px 100px;
+    grid-template-rows: 40px 200px 40px 40px;
+    gap: 20px;
     perspective: 1000px;
 }
 
 #CardFront, #CardBack {
-    width: 400px;
-    height: 300px;
     border-radius: 10px;
-    padding: 15px;
+    /* padding: 15px; */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    min-height: 100%;
+    min-width: 100%;
 }
 
 #CardFront {
     background: linear-gradient(135deg, #37474F, #263238);
     color: white;
     grid-column: 1 / 3;
-    grid-row: 1;
+    grid-row: 1/3;
     z-index: 2;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 #CardFrontContent {
+    padding: 15px;
     display: grid;
     grid-template-columns: 75% 25%;
     grid-template-rows: 33% 33% 33%;
+    gap: 10px;
+    
+}
+#CardTotal{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    align-self: center;
+}
+.card-image {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+#CardNumberLabel, #CardHolderLabel, #ExpirationLabel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#CardNumberInput, #CardHolderInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#CardNumberContainer {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+#CardHolderContainer {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
+#ExpirationContainer {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+#ExpirationContainer .flex-container {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#ExpirationContainer input {
+    width: 30%;
+}
 
 #CardBack {
     background: linear-gradient(135deg, #455A64, #1C313A);
     color: white;
     grid-column: 2 / 4;
-    grid-row: 2;
+    grid-row: 2/4;
     z-index: 1;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 input {
-    width: 100%;
+    /* width: 100%; */
     padding: 8px;
     border: none;
     border-radius: 5px;
 }
 
 button.Submit {
-    grid-column: 3;
-    margin-top: 10px;
+    grid-column: 3/4;
+    grid-row: 4/5;
+    /* margin-top: 10px;
     padding: 10px;
     width: 100px;
-    height: 50px;
+    height: 50px; */
     border: none;
     border-radius: 5px;
     background-color: black;
