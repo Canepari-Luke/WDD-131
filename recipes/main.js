@@ -1,5 +1,14 @@
 import recipes from './recipes.mjs';
 
+function random(num) {
+    return Math.floor(Math.random() * num);
+}
+
+function getRandomRecipe() {
+    const randomIndex = random(recipes.length);
+    return recipes[randomIndex];
+}
+
 function tagsTemplate(tags) {
     return tags.map(tag => `<span class="tag">${tag}</span>`).join(' ');
 }
@@ -36,14 +45,35 @@ function recipeTemplate(recipe) {
     </figure>`;
 }
 
-function renderRecipes(recipe) {
+function renderRecipes(recipeList) {
     const recipesContainer = document.getElementById('recipes');
-    recipesContainer.innerHTML = recipeTemplate(recipe);
+    recipesContainer.innerHTML = recipeList.map(recipe => recipeTemplate(recipe)).join('');
 }
 
 function init() {
-    const recipeIndex = 0
-    renderRecipes(recipes[recipeIndex]);
+    const randomRecipe = getRandomRecipe();
+    renderRecipes([randomRecipe]);
 }
 
 init();
+
+function filterRecipes(query) {
+    query = query.toLowerCase();
+    return recipes.filter(recipe => {
+        return (
+            recipe.name.toLowerCase().includes(query) ||
+            recipe.description.toLowerCase().includes(query) ||
+            recipe.tags.some(tag => tag.toLowerCase().includes(query)) ||
+            recipe.recipeIngredient.some(ingredient => ingredient.toLowerCase().includes(query))
+        );
+    }).sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function searchHandler(event) {
+    event.preventDefault();
+    const searchInput = document.querySelector('.search-form input').value;
+    const filteredRecipes = filterRecipes(searchInput);
+    renderRecipes(filteredRecipes);
+}
+
+document.querySelector('.search-form button').addEventListener('click', searchHandler);
